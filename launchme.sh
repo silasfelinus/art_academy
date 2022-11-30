@@ -23,7 +23,7 @@ fi
 # python3 executable
 if [[ -z "${python_cmd}" ]]
 then
-    python_cmd="python"
+    python_cmd="python3"
 fi
 
 # git executable
@@ -82,6 +82,8 @@ else
     printf "\n%s\n" "${delimiter}"
     exit 1
 fi
+
+pip install --upgrade -r requirements.txt
 
     printf "\n%s\n" "${delimiter}"
     printf "FleeboWeebling..."

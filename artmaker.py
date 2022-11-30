@@ -2,7 +2,7 @@ pip install --upgrade -r requirements.txt
 from token import TOKEN
   
 from huggingface_hub import hf_hub_download
-hf_hub_download(repo_id="IShallRiseAgain/StudioGhibli", filename="StudioGhibliV4.ckpt", user_auth_token=TOKEN)
+hf_hub_download(repo_id="IShallRiseAgain/StudioGhibli", filename="StudioGhibliV4.ckpt", token=TOKEN)
 
 
 import torch
