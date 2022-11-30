@@ -1,5 +1,5 @@
 #!/bin/bash
-  cd ~/
+  cd c:
   rm -rf webui
 
   echo "Installing Stable Diffusion Webui"
