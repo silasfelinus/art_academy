@@ -1,8 +1,9 @@
+pip install --upgrade -r requirements.txt
+  
+from huggingface_hub import hf_hub_download
+hf_hub_download(repo_id="google/pegasus-xsum", filename="config.json")
 
-!pip install requirements.txt
 
-# from huggingface_hub import notebook_login
-# notebook_login()
 import torch
 from transformers import CLIPTextModel, CLIPTokenizer
 from transformers import logging
@@ -23,3 +24,7 @@ logging.set_verbosity_error()
 
 # Set device
 torch_device = "cuda" if torch.cuda.is_available() else "cpu"
+
+echo torch_device
+echo "are we ready?"
+read ready
