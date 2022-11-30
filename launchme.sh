@@ -9,21 +9,21 @@ fi
 
 # Set defaults
 # Install directory without trailing slash
-if [[ -z "${install_dir}" ]]
+if [[ -z "${INSTALL_DIR}" ]]
 then
-    install_dir="/home/$(whoami)/code"
+    INSTALL_DIR="/home/$(whoami)/code"
 fi
 
 # Name of the subdirectory
-if [[ -z "${clone_dir}" ]]
+if [[ -z "${CLONE_DIR}" ]]
 then
-    clone_dir="art_academy"
+    CLONE_DIR="art_academy"
 fi
 
 # python3 executable
-if [[ -z "${python_cmd}" ]]
+if [[ -z "${PYTHON_CMD}" ]]
 then
-    python_cmd="python3"
+    PYTHON_CMD="python3"
 fi
 
 # git executable
@@ -32,10 +32,10 @@ then
     export GIT="git"
 fi
 
-# python3 venv without trailing slash (${install_dir}/${clone_dir}/venv/)
-if [[ -z "${venv_dir}" ]]
+# python3 venv without trailing slash (${INSTALL_DIR}/${CLONE_DIR}/venv/)
+if [[ -z "${VENV_DIR}" ]]
 then
-    venv_dir="${install_dir}/${clone_dir}/venv/bin"
+    VENV="${INSTALL_DIR}/${CLONE_DIR}/venv/bin"
 fi
 
 if [[ -z "${LAUNCH_SCRIPT}" ]]
@@ -50,42 +50,42 @@ export ERROR_REPORTING=FALSE
 export PIP_IGNORE_INSTALLED=0
 
 # Pretty print
-delimiter="################################################################"
+DELIMITER="################################################################"
 
 # Do not run as root
 if [[ $(id -u) -eq 0 ]]
 then
-    printf "\n%s\n" "${delimiter}"
-    printf "\e[1m\e[31mERROR: This script must not be launched as root, aborting...\e[0m"
-    printf "\n%s\n" "${delimiter}"
+    printf "\n" "${DELIMITER}"
+    printf "\n" "ERROR: This script must not be launched as root, aborting..."
+    printf "\n" "${DELIMITER}"
     exit 1
 else
-    printf "\n%s\n" "${delimiter}"
+    printf "\n" "${DELIMITER}"
     printf "\e[1m\e[32m%s\e[0m is very attractive!" "$(whoami)"
-    printf "\n%s\n" "${delimiter}"
+    printf "\n" "${DELIMITER}"
 fi
 
 
-cd "${install_dir}"/"${clone_dir}"/ || { printf "\e[1m\e[31mERROR: Can't cd to %s/%s/, aborting...\e[0m" "${install_dir}" "${clone_dir}"; exit 1; }
-if [[ ! -d "${venv_dir}" ]]
+cd "${INSTALL_DIR}"/"${CLONE_DIR}"/ || { printf "\n" "ERROR: Can't cd to %s/%s/, aborting...\e[0m" "${INSTALL_DIR}" "${CLONE_DIR}"; exit 1; }
+if [[ ! -d "${VENV_DIR}" ]]
 then
-    "${python_cmd}" -m venv "${venv_dir}"
+    "${PYTHON_CMD}" -m venv "${VENV_DIR}"
     first_launch=1
 fi
 # shellcheck source=/dev/null
-if [[ -f "${venv_dir}"/activate ]]
+if [[ -f "${VENV_DIR}"/activate ]]
 then
-    source "${venv_dir}"/activate
+    source "${VENV_DIR}"/activate
 else
-    printf "\n%s\n" "${delimiter}"
-    printf "\e[1m\e[31mERROR: Cannot activate python venv, aborting...\e[0m"
-    printf "\n%s\n" "${delimiter}"
+    printf "\n" "${DELIMITER}"
+    printf "\ERROR: Cannot activate python venv, aborting..."
+    printf "\n" "${DELIMITER}"
     exit 1
 fi
 
 pip install --upgrade -r requirements.txt
 
-    printf "\n%s\n" "${delimiter}"
+    printf "\n" "${DELIMITER}"
     printf "FleeboWeebling..."
-    printf "\n%s\n" "${delimiter}"
-    "${python_cmd}" "${LAUNCH_SCRIPT}" "$@"
+    printf "\n" "${DELIMITER}"
+    "${PYTHON_CMD}" "${LAUNCH_SCRIPT}" "$@"
