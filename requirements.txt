@@ -1,0 +1,8 @@
+fastai
+diffusers==0.4.0
+transformers
+huggingface-hub
+scipy
+ftfy
+#ipywidgets>=7,<8
+xformers
