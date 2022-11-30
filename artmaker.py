@@ -1,4 +1,3 @@
-pip install --upgrade -r requirements.txt
 from hugtoken import TOKEN
   
 from huggingface_hub import hf_hub_download

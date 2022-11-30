@@ -1,9 +1,11 @@
 #!/bin/bash
 
+echo "Initializing config"
 source <(grep = config.ini | sed 's/ *= */=/g')
 
 
-   
+
+
 # Disable sentry logging
 export ERROR_REPORTING=FALSE
 
@@ -26,27 +28,20 @@ else
     printf "\n" "${DELIMITER}"
 fi
 
+echo "Making sure we're in the right directory"
+cd "${INSTALL_DIR}"/"${CLONE_DIR}"/
 
-cd "${INSTALL_DIR}"/"${CLONE_DIR}"/ || { printf "\n" "ERROR: Can't cd to %s/%s/, aborting...\e[0m" "${INSTALL_DIR}" "${CLONE_DIR}"; exit 1; }
-if [[ ! -d "${VENV_DIR}" ]]
-then
-    "${PYTHON_CMD}" -m venv "${VENV_DIR}"
-    first_launch=1
-fi
-# shellcheck source=/dev/null
-if [[ -f "${VENV_DIR}/activate" ]]
-then
-    source "${VENV_DIR}/activate"
-else
-    printf "\n" "${DELIMITER}"
-    printf "\ERROR: Cannot activate python venv, aborting..."
-    printf "\n" "${DELIMITER}"
-    exit 1
-fi
+echo "activating venv"
+${PYTHON_CMD} -m venv venv
 
-pip install --upgrade -r requirements.txt
 
-    printf "\n" "${DELIMITER}"
-    printf "FleeboWeebling..."
-    printf "\n" "${DELIMITER}"
-    "${PYTHON_CMD}" "${LAUNCH_SCRIPT}" "$@"
+
+source "${VENV_DIR}/activate"
+
+pip install --upgrade -r ${REQUIREMENTS}
+
+printf "\n" "${DELIMITER}"
+printf "FleeboWeebling..."
+printf "Launching ${LAUNCH_SCRIPT}"
+printf "\n" "${DELIMITER}"
+"${PYTHON_CMD}" "${LAUNCH_SCRIPT}" "$@"
