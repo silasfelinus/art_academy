@@ -1,48 +1,9 @@
 #!/bin/bash
 
-# check for config.ini
-# please change settings there
-if [[ -f config.ini ]]
-then
-    source <(grep = config.ini | sed 's/ *= */=/g')
-fi
+source <(grep = config.ini | sed 's/ *= */=/g')
 
-# Set defaults
-# Install directory without trailing slash
-if [[ -z "${INSTALL_DIR}" ]]
-then
-    INSTALL_DIR="/home/$(whoami)/code"
-fi
 
-# Name of the subdirectory
-if [[ -z "${CLONE_DIR}" ]]
-then
-    CLONE_DIR="art_academy"
-fi
-
-# python3 executable
-if [[ -z "${PYTHON_CMD}" ]]
-then
-    PYTHON_CMD="python3"
-fi
-
-# git executable
-if [[ -z "${GIT}" ]]
-then
-    export GIT="git"
-fi
-
-# python3 venv without trailing slash (${INSTALL_DIR}/${CLONE_DIR}/venv/)
-if [[ -z "${VENV_DIR}" ]]
-then
-    VENV="${INSTALL_DIR}/${CLONE_DIR}/venv/bin"
-fi
-
-if [[ -z "${LAUNCH_SCRIPT}" ]]
-then
-    LAUNCH_SCRIPT="test.py"
-fi
-
+   
 # Disable sentry logging
 export ERROR_REPORTING=FALSE
 
@@ -73,9 +34,9 @@ then
     first_launch=1
 fi
 # shellcheck source=/dev/null
-if [[ -f "${VENV_DIR}"/activate ]]
+if [[ -f "${VENV_DIR}/activate" ]]
 then
-    source "${VENV_DIR}"/activate
+    source "${VENV_DIR}/activate"
 else
     printf "\n" "${DELIMITER}"
     printf "\ERROR: Cannot activate python venv, aborting..."
