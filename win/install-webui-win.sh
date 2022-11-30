@@ -9,7 +9,7 @@
   
   echo "Setting up Virtual Environment"
   python3 -m venv venv
-  source ./venv/bin/activate
+  . venv/Scripts/activate
   rm -rf extensions
   rm -rf models
   rm -rf embeddings
