@@ -24,12 +24,7 @@
   pip install -r requirements.txt
 
   echo "Installing xformers"
-  cd repositories
-  git clone https://github.com/facebookresearch/xformers.git
-  cd xformers
-  git submodule update --init --recursive
-  pip install -r requirements.txt
-  pip install -e .
+  #pip install git+https://github.com/facebookresearch/xformers.git@v0.0.12#egg=xformers
   
 
   echo "Running stable diffusion"

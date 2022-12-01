@@ -6,6 +6,9 @@ matplotlib
 IPython
 accelerate
 scipy
+triton
+wheel
+git+https://github.com/facebookresearch/xformers.git@main#egg=xformers
 --extra-index-url https://download.pytorch.org/whl/cu113
 torch==1.12.1+cu113
 torchvision==0.13.1+cu113

@@ -24,6 +24,8 @@
 
   pip install -r requirements.txt
   
+  pip install git+https://github.com/facebookresearch/xformers.git@v0.0.12#egg=xformers
+  
 
 
   echo "Running stable diffusion"
