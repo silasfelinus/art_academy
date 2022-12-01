@@ -5,7 +5,7 @@
   echo "Installing Stable Diffusion Webui"
   git clone https://github.com/silasfelinus/stable-diffusion-webui.git webui
    
-  cd webui
+  cd webui 
   
   echo "Setting up Virtual Environment"
   python3 -m venv venv
