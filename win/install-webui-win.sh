@@ -14,9 +14,9 @@
   rm -rf models
   rm -rf embeddings
   rm webui-user.bat
-  cp //alexandria.local/pc/ai/models models
-  cp //alexandria.local/pc/ai/embeddings embeddings
-  cp //alexandria.local/pc/ai/extensions extensions
+  cp -Rv //alexandria.local/pc/ai/models models
+  cp -Rv //alexandria.local/pc/ai/embeddings embeddings
+  cp -Rv //alexandria.local/pc/ai/extensions extensions
 
   ln -sf /c/code/art_academy/win/restore/webui-user.bat webui-user.bat
   ln -sf /c/code/art_academy/win/restore/config.json config.json
@@ -28,5 +28,5 @@
 
   echo "Running stable diffusion"
 
-  ./webui.sh
+  ./webui.bat
 
