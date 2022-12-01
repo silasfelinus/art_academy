@@ -21,9 +21,18 @@
   ln -sf ~/code/art_academy/restore/config.json config.json
   ln -sf ~/code/art_academy/restore/ui-config.json ui-config.json
   pip install -r requirements.txt
+
+  echo "Installing xformers"
+  cd repositories
+  git clone https://github.com/facebookresearch/xformers.git
+  cd xformers
+  git submodule update --init --recursive
+  pip install -r requirements.txt
+  pip install -e .
   
 
   echo "Running stable diffusion"
-
+  cd ..
+  cd ..
   ./webui.sh
 
