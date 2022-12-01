@@ -14,21 +14,25 @@
   rm -rf models
   rm -rf embeddings
   rm webui-user.sh
-  ln -sf /c/code/models /c/webui/models
-  ln -sf /c/code/extensions /c/webui/extensions
-  ln -sf /c/code/embeddings /c/webui/embeddings
+  ln -sf /home/silasfelinus/code/models
+  ln -sf /home/silasfelinus/code/extensions
+  ln -sf /home/silasfelinus/code/embeddings
 
-  cp /c/code/art_academy/restore/webui-user.sh /c/webui/webui-user.sh
-  ln -sf /c/code/art_academy/restore/config.json /c/webui/config.json
-  ln -sf /c/code/art_academy/restore/ui-config.json /c/webui/ui-config.json
+  cp /home/silasfelinus/code/art_academy/restore/webui-user.sh webui-user.sh
+  ln -sf /home/silasfelinus/code/art_academy/restore/config.json config.json
+  ln -sf /home/silasfelinus/code/art_academy/restore/ui-config.json ui-config.json
+  ln -s /home/silasfelinus/nextcloud/lolart
+  ln -s /home/silasfelinus/lola/grids
+  ln -s /home/silasfelinus/lola
+  ln -s /home/silasfelinus/nextcloud/lolart
+
   pip install -r requirements.txt
 
   echo "Installing xformers"
-  #pip install git+https://github.com/facebookresearch/xformers.git@v0.0.12#egg=xformers
+  #pip install git+https://github.com/facebookresearch/xformers.git@main#egg=xformers
   
 
   echo "Running stable diffusion"
-  cd ..
-  cd ..
+  cd /home/silasfelinus/webui/
   ./webui.sh
 

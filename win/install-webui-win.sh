@@ -21,10 +21,9 @@
   ln -sf /c/code/art_academy/win/restore/webui-user.bat webui-user.bat
   ln -sf /c/code/art_academy/win/restore/config.json config.json
   ln -sf /c/code/art_academy/win/restore/ui-config.json ui-config.json
+  ln -sf /c/nextcloud/ai-art ai-art
 
   pip install -r requirements.txt
-  
-  pip install git+https://github.com/facebookresearch/xformers.git@v0.0.12#egg=xformers
   
 
 
