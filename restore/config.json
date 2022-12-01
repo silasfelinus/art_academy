@@ -59,7 +59,7 @@
     "training_image_repeats_per_epoch": 1,
     "training_write_csv_every": 500,
     "training_xattention_optimizations": false,
-    "sd_model_checkpoint": "Mdjrny-pprct_step_7000.ckpt [c5943e55]",
+    "sd_model_checkpoint": "Inkpunk-Diffusion-v2.ckpt [9571b2c7]",
     "sd_checkpoint_cache": 0,
     "sd_vae": "auto",
     "sd_vae_as_default": false,

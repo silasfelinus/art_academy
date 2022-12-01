@@ -27,6 +27,18 @@ torch_device = "cuda" if torch.cuda.is_available() else "cpu"
 print(torch_device)
 print("if that says cuda, we're ready!")
 
+from diffusers import StableDiffusionPipeline
+
+# get your token at https://huggingface.co/settings/tokens
+pipe = StableDiffusionPipeline.from_pretrained("CompVis/stable-diffusion-v1-4", revision="fp16", torch_dtype=torch.float16, use_auth_token=TOKEN)
+
+prompt = "a photograph of an astronaut riding a horse"
+
+image = pipe(prompt)["sample"][0]
+image.save(f"astronaut_rides_horse.png")
+
+print("Did that save?")
+
 #hf_hub_download(repo_id="IShallRiseAgain/StudioGhibli", filename="StudioGhibliV4.ckpt", token=TOKEN)
 
 #Load the models 
@@ -49,3 +61,6 @@ scheduler = LMSDiscreteScheduler(beta_start=0.00085, beta_end=0.012, beta_schedu
 vae = vae.to(torch_device)
 text_encoder = text_encoder.to(torch_device)
 unet = unet.to(torch_device)
+
+
+
