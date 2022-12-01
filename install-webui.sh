@@ -18,11 +18,10 @@
   ln -sf ~/code/extensions
   ln -sf ~/code/embeddings
   cp ~/code/art_academy/restore/webui-user.sh webui-user.sh
-  ln -sf ~/code/art_academy/restore/config.json
-  ln -sf ~/code/art_academy/restore/ui-config.json
+  ln -sf ~/code/art_academy/restore/config.json config.json
+  ln -sf ~/code/art_academy/restore/ui-config.json ui-config.json
   pip install -r requirements.txt
   
-
 
   echo "Running stable diffusion"
 

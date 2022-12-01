@@ -1,7 +1,7 @@
 {
     "samples_save": true,
     "samples_format": "png",
-    "samples_filename_pattern": "[seed]-[cfg]-[model]-[steps]-[prompt]",
+    "samples_filename_pattern": "[seed]-[cfg]-[model_id]-[steps]-[prompt]",
     "save_images_add_number": true,
     "grid_save": true,
     "grid_format": "png",
