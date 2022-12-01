@@ -2,5 +2,8 @@ ftfy
 diffusers
 transformers
 huggingface_hub
-torch==1.12.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
-torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113
+matplotlib
+IPython
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch==1.12.1+cu113
+torchvision==0.13.1+cu113

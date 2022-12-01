@@ -25,6 +25,5 @@ logging.set_verbosity_error()
 # Set device
 torch_device = "cuda" if torch.cuda.is_available() else "cpu"
 
-echo torch_device
-echo "are we ready?"
-read ready
+print(torch_device)
+print("if that says cuda, we're ready!")
