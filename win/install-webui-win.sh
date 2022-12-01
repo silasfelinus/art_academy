@@ -13,13 +13,15 @@
   rm -rf extensions
   rm -rf models
   rm -rf embeddings
-  rm webui-user.sh
-  ln -sf ~/code/models
-  ln -sf ~/code/extensions
-  ln -sf ~/code/embeddings
-  cp ~/code/art_academy/restore/webui-user.sh webui-user.sh
-  ln -sf ~/code/art_academy/restore/config.json
-  ln -sf ~/code/art_academy/restore/ui-config.json
+  rm webui-user.bat
+  cp //alexandria.local/pc/ai/models models
+  cp //alexandria.local/pc/ai/embeddings embeddings
+  cp //alexandria.local/pc/ai/extensions extensions
+
+  ln -sf /c/code/art_academy/win/restore/webui-user.bat webui-user.bat
+  ln -sf /c/code/art_academy/win/restore/config.json config.json
+  ln -sf /c/code/art_academy/win/restore/ui-config.json ui-config.json
+
   pip install -r requirements.txt
   
 
