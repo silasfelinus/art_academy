@@ -29,7 +29,7 @@
     "outdir_txt2img_grids": "/home/silasfelinus/lola/grids",
     "outdir_img2img_grids": "/home/silasfelinus/lola/grids",
     "outdir_save": "/home/silasfelinus/lola/lolart",
-    "save_to_dirs": true,
+    "save_to_dirs": false,
     "grid_save_to_dirs": false,
     "use_save_to_dirs_for_ui": false,
     "directories_filename_pattern": "",
@@ -59,7 +59,7 @@
     "training_image_repeats_per_epoch": 1,
     "training_write_csv_every": 500,
     "training_xattention_optimizations": false,
-    "sd_model_checkpoint": "Inkpunk-Diffusion-v2.ckpt [9571b2c7]",
+    "sd_model_checkpoint": "768-v-ema.ckpt [2c02b20a]",
     "sd_checkpoint_cache": 0,
     "sd_vae": "auto",
     "sd_vae_as_default": false,
@@ -140,7 +140,9 @@
     "s_tmin": 0.0,
     "s_noise": 1.0,
     "eta_noise_seed_delta": 0,
-    "disabled_extensions": [],
+    "disabled_extensions": [
+        "sd-dynamic-prompts"
+    ],
     "wildcards_same_seed": false,
     "images_history_preload": true,
     "images_history_page_columns": 6.0,
