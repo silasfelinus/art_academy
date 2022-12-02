@@ -5,7 +5,7 @@
   echo "Installing Stable Diffusion Webui"
   git clone https://github.com/silasfelinus/stable-diffusion-webui.git webui
    
-  cd webui
+  cd webui 
   
   echo "Setting up Virtual Environment"
   python3 -m venv venv
@@ -21,7 +21,7 @@
   ln -sf /home/silasfelinus/code/art_academy/restore/webui-user.sh webui-user.sh
   ln -sf /home/silasfelinus/code/art_academy/restore/config.json config.json
   ln -sf /home/silasfelinus/code/art_academy/restore/ui-config.json ui-config.json
-  ln -s /home/silasfelinus/lolart
+  ln -s /home/silasfelinus/nextcloud/lolart
   ln -s /home/silasfelinus/lola/grids
 
 
