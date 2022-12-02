@@ -18,16 +18,14 @@
   cp -Rv //alexandria.local/pc/ai/embeddings embeddings
   cp -Rv //alexandria.local/pc/ai/extensions extensions
 
-  ln -sf /c/code/art_academy/win/restore/webui-user.bat webui-user.bat
-  ln -sf /c/code/art_academy/win/restore/config.json config.json
-  ln -sf /c/code/art_academy/win/restore/ui-config.json ui-config.json
-  ln -sf /c/nextcloud/ai-art ai-art
+  ln -s /c/code/art_academy/win/restore/webui-user.bat webui-user.bat
+  ln -s /c/code/art_academy/win/restore/config.json config.json
+  ln -s /c/code/art_academy/win/restore/ui-config.json ui-config.json
+  ln -s /c/nextcloud/ai-art
+  ln -s /c/nextcloud/ai-art/grids
 
   pip install -r requirements.txt
   
-
-
   echo "Running stable diffusion"
-
   ./webui.bat
 
