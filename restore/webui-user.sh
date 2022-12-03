@@ -7,10 +7,10 @@
 #install_dir="/home/$(whoami)"
 
 # Name of the subdirectory
-#clone_dir="stable-diffusion-webui"
+clone_dir="webui"
 
 # Commandline arguments for webui.py, for example: export COMMANDLINE_ARGS="--medvram --opt-split-attention" or "--precision full --no-half --medvram --opt-split-attention  --skip-torch-cuda-test"
-export COMMANDLINE_ARGS="--listen --port 6464 --administrator --enable-console-prompts --api --enable-insecure-extension-access --medvram --api"
+export COMMANDLINE_ARGS="--listen --port 6464 --administrator --enable-console-prompts --api --enable-insecure-extension-access --medvram"
 
 # python3 executable 
 #python_cmd="python3"
