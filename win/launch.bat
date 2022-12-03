@@ -1,11 +1,11 @@
 @echo off
 
 set INSTALL_DIR="c:"
-set CLONE_DIR="webui"
+set CLONE_DIR="code"
 set VENV_DIR=${install_dir}\${clone_dir}\venv
 set PYTHON_CMD="python3"
 set REQUIREMENTS="requirements.txt"
-set ARGS=" --xformers --precision full --no-half --medvram --listen --port 4242 --administrator --enable-console-prompts --enable-insecure-extension-access"
+set ARGS="--precision full --no-half --medvram --listen --port 4242 --administrator --enable-console-prompts --enable-insecure-extension-access"
 
 
 set ERROR_REPORTING=FALSE
