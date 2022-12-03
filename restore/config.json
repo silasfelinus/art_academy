@@ -59,7 +59,7 @@
     "training_image_repeats_per_epoch": 1,
     "training_write_csv_every": 500,
     "training_xattention_optimizations": false,
-    "sd_model_checkpoint": "768-v-ema.ckpt [2c02b20a]",
+    "sd_model_checkpoint": "v1-5-pruned-emaonly.ckpt [81761151]",
     "sd_checkpoint_cache": 0,
     "sd_vae": "auto",
     "sd_vae_as_default": false,
