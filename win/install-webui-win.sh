@@ -1,6 +1,6 @@
 #!/bin/bash
   cd c:
-  rm -rf webui
+  #rm -rf webui
 
   echo "Installing Stable Diffusion Webui"
   git clone https://github.com/silasfelinus/stable-diffusion-webui.git webui
