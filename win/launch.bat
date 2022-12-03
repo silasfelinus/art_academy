@@ -1,8 +1,12 @@
 @echo off
-. config.ini
 
-if not defined PYTHON (set PYTHON=python)
-if not defined VENV_DIR (set VENV_DIR=venv)
+set INSTALL_DIR="c:"
+set CLONE_DIR="webui"
+set VENV_DIR=${install_dir}\${clone_dir}\venv
+set PYTHON_CMD="python3"
+set REQUIREMENTS="requirements.txt"
+set ARGS=" --xformers --precision full --no-half --medvram --listen --port 4242 --administrator --enable-console-prompts --enable-insecure-extension-access"
+
 
 set ERROR_REPORTING=FALSE
 
@@ -28,24 +32,15 @@ goto :show_stdout_stderr
 :activate_venv
 set PYTHON="%~dp0%VENV_DIR%\Scripts\Python.exe"
 echo venv %PYTHON%
-if [%ACCELERATE%] == ["True"] goto :accelerate
 goto :launch
 
-:accelerate
-echo "Checking for accelerate"
-set ACCELERATE="%~dp0%VENV_DIR%\Scripts\accelerate.exe"
-if EXIST %ACCELERATE% goto :accelerate_launch
+
 
 :launch
-%PYTHON% launch.py %*
+%PYTHON% %LAUNCH_SCRIPT%*
 pause
 exit /b
 
-:accelerate_launch
-echo "Accelerating"
-%ACCELERATE% launch --num_cpu_threads_per_process=6 stable.py
-pause
-exit /b
 
 :show_stdout_stderr
 
