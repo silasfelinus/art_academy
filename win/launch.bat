@@ -3,7 +3,7 @@
 echo "setting parameters"
 set INSTALL_DIR="c:"
 set CLONE_DIR="code"
-set VENV_DIR=%INSTALL_DIR%\%CLONE_DIR%\venv
+set VENV_DIR="%INSTALL_DIR%\%CLONE_DIR%\venv"
 set PYTHON_CMD="python3"
 set REQUIREMENTS="requirements.txt"
 set export ARGS="--precision full --no-half --medvram --listen --port 4242 --administrator --enable-console-prompts --enable-insecure-extension-access"
@@ -18,6 +18,7 @@ pause
 exit /b
 
 :activate_venv
+echo "Venv exists, trying to source..."
 source venv/Scripts/activate
 if %ERRORLEVEL% == 0 goto :launch
 echo Unable to source venv in directory %VENV_DIR%
