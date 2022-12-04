@@ -3,6 +3,7 @@ diffusers
 transformers
 huggingface_hub
 matplotlib
+numpy
 IPython
 scipy
 triton

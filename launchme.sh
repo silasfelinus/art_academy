@@ -29,7 +29,8 @@ else
 fi
 
 echo "Making sure we're in the right directory"
-cd "${INSTALL_DIR}"/"${CLONE_DIR}"/
+cd ${INSTALL_DIR}
+cd ${CLONE_DIR}
 
 echo "activating venv"
 ${PYTHON_CMD} -m venv venv
