@@ -1,7 +1,14 @@
 #!/bin/bash
 
 echo "Initializing config"
-source <(grep = config.ini | sed 's/ *= */=/g')
+INSTALL_DIR="/home/$(whoami)/code"
+CLONE_DIR="art_academy"
+VENV_DIR="venv/bin"
+PYTHON_CMD="python3"
+LAUNCH_SCRIPT="artmaker.py"
+GIT="git"
+REQUIREMENTS="requirements.txt"
+export ARGS="--listen --port 6464 --administrator --enable-console-prompts --api --enable-insecure-extension-access --medvram --api"
 
 
 
@@ -38,7 +45,7 @@ ${PYTHON_CMD} -m venv venv
 
 source "${VENV_DIR}/activate"
 
-pip install --upgrade -r ${REQUIREMENTS}
+#pip install --upgrade -r ${REQUIREMENTS}
 
 printf "\n" "${DELIMITER}"
 printf "FleeboWeebling..."
