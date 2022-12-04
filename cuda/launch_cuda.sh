@@ -13,7 +13,7 @@ check_pytorch:
 conda activate cuda_env
 python
 > import torch
-> torch.cuda.is_available()  # The output should be a boolean "True"
+> torch.cuda.is_available()  # The output should be a boolean "True"con
 True
 > device = torch.device("cuda")          # a CUDA device object
 > x = torch.rand(10000, 10, device=device) # create tensor on GPU

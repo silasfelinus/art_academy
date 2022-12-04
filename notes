@@ -1,3 +1,21 @@
+V2:
+art
+photos
+v2_embeds
+[Art, Photos, 2_E]
+
+
+V1.5:art, photos, celebrity, 1.5_embeds
+[Art, Photos, Celebrity, 1.5_E]
+
+
+Midjourney: art, 1.5_embeds
+[1.5_E]
+
+
+Matchmaker2:
+[1.5E]
+
 __celebrity__ , __masterpiece__
 __medium__ __fantasy-creature__, __masterpiece__
 __person__ with __animal__, __x/style__, __masterpiece__
@@ -58,10 +76,6 @@ __celebrity__, __punkstyle__, __masterpiece__
 quality, __celebrity__, __punkstyle__
 hyper realistic, realistic - anime, 4 k, 8 k, pixiv, artstation, portrait, beautifully rendered, __celebrity__ as __clean-cosplay__, painted by greg rutkowski, wlop, artgerm, dishonored 
 portrait "__crush__, cyberpunk busyness", headphones, eyewear, gadgets, teeth, colorful water painting, fantasy, golden ratio, fake detail, trending pixiv fanbox, acrylic palette knife, by Jean Baptiste Monge, style of makoto shinkai studio ghibli genshin impact james gilleard greg rutkowski chiho aoshima
-
-
-
-
 
 
 ______hair
@@ -176,25 +190,6 @@ partner = ("friend", "girlfriend", "friends", "animal", "alien", "pet", "slave",
 outro = "color splash, EF 70mm, canon, perfect lighting, rainbow hair, 4k smokey eyes, freckles++, eye contact";
 negatives = "[bad anatomy, extra legs, extra arms, extra fingers, poorly drawn hands, poorly drawn feet, disfigured, out of frame, tiling, bad art, deformed, mutated]";
 
-[# Generates artwork for a fantasy card game.]
-
-[set setting][chance 50]<file ./adjective_place>[/chance][chance 25] <file ./adjective_place>[/chance] [file ./places/*][/set]
-[set do_hybrid]0[/set]
-([set subject _out](the [chance 50][file ./adjective_subject][/chance]
-[set species_a][chance 25]<file ./adjective_subject> [/chance][file ./species/*][/set]
-[set species_b]<chance 25><file ./adjective_subject> </chance>[file ./species/*][/set]
-[set species][get species_a][chance 50]|<set do_hybrid>1</set>[get species_b][/chance][/set]
-[set class_chance]75[/set][set species _out][if do_hybrid=1]<get species _before=[ _after=]>-hybrid[/if][else]<get species>[/else][/set][chance _probability="<get class_chance>"] <file ./class>[/chance]
-[set archetype _out][file ./archetype][/set] in a fantasy style))[/set][chance 33] [choose]wearing the|with[/choose] <file ./clothes/material> <file ./clothes/slot>[/chance][choose] in the <get setting> setting,|, <get setting> background,[/choose]
-[file ./style]
-
-[set cfg_scale]8[/set]
-[set negative_prompt]bad hands, missing fingers, extra limb, deformed, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, username, watermark, blurry, cropped[/set]
-
-
-
-
-2e
 __quality__, __x/style__,__x/age__ __crush__, __x/action__, __x/fashion__, __x/hair__, __x/location__,  giving head, fellatio
 __quality__, __x/age__ __crush__, __x/location__
 __quality__, __x/age__ __crush__, topless, by fantasy-artist
