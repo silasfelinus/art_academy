@@ -1,3 +1,3 @@
 venv/
-hugtoken.py
-__pycache__
+hugtoken.*
+__pycache__/

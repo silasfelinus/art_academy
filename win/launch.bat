@@ -1,72 +1,31 @@
 @echo off
-. config.ini
 
-if not defined PYTHON (set PYTHON=python)
-if not defined VENV_DIR (set VENV_DIR=venv)
+echo setting parameters
+set INSTALL_DIR="c:"
+set CLONE_DIR="code"
+set VENV_DIR="%INSTALL_DIR%//%CLONE_DIR%//venv"
+set PYTHON_CMD="python3"
+set REQUIREMENTS="requirements.txt"
+set PYTHON="venv//Scripts//python.exe"
+set LAUNCH_SCRIPT="artmaker.py"
+set export ARGS="--precision full --no-half --medvram --listen --port 4242 --administrator --enable-console-prompts --enable-insecure-extension-access"
+
 
 set ERROR_REPORTING=FALSE
+cd %INSTALL_DIR%
+cd %CLONE_DIR%
+%PYTHON_CMD% -m venv venv
 
-mkdir tmp 2>NUL
 
-%PYTHON% -c "" >tmp/stdout.txt 2>tmp/stderr.txt
-if %ERRORLEVEL% == 0 goto :start_venv
-echo Couldn't launch pythons
-goto :show_stdout_stderr
-
-:start_venv
-
-dir %VENV_DIR%\Scripts\Python.exe >tmp/stdout.txt 2>tmp/stderr.txt
-if %ERRORLEVEL% == 0 goto :activate_venv
-
-for /f "delims=" %%i in ('CALL %PYTHON% -c "import sys; print(sys.executable)"') do set PYTHON_FULLNAME="%%i"
-echo Creating venv in directory %VENV_DIR% using python %PYTHON_FULLNAME%
-%PYTHON_FULLNAME% -m venv %VENV_DIR% >tmp/stdout.txt 2>tmp/stderr.txt
-if %ERRORLEVEL% == 0 goto :activate_venv
-echo Unable to create venv in directory %VENV_DIR%
-goto :show_stdout_stderr
-
-:activate_venv
-set PYTHON="%~dp0%VENV_DIR%\Scripts\Python.exe"
-echo venv %PYTHON%
-if [%ACCELERATE%] == ["True"] goto :accelerate
-goto :launch
-
-:accelerate
-echo "Checking for accelerate"
-set ACCELERATE="%~dp0%VENV_DIR%\Scripts\accelerate.exe"
-if EXIST %ACCELERATE% goto :accelerate_launch
+venv//Scripts//activate.ps1
+if %ERRORLEVEL% == 0 goto :launch
+echo Unable to source venv in directory %VENV_DIR%
+pause
+exit /b
 
 :launch
-%PYTHON% launch.py %*
+echo launching script
+%PYTHON% %LAUNCH_SCRIPT%
 pause
 exit /b
 
-:accelerate_launch
-echo "Accelerating"
-%ACCELERATE% launch --num_cpu_threads_per_process=6 stable.py
-pause
-exit /b
-
-:show_stdout_stderr
-
-echo.
-echo exit code: %errorlevel%
-
-for /f %%i in ("tmp\stdout.txt") do set size=%%~zi
-if %size% equ 0 goto :show_stderr
-echo.
-echo stdout:
-type tmp\stdout.txt
-
-:show_stderr
-for /f %%i in ("tmp\stderr.txt") do set size=%%~zi
-if %size% equ 0 goto :show_stderr
-echo.
-echo stderr:
-type tmp\stderr.txt
-
-:endofscript
-
-echo.
-echo Launch unsuccessful. Exiting.
-pause
