@@ -1,0 +1,12 @@
+#install nvidia file run install file
+
+#confirm it works
+nvidia-smi
+
+sudo apt install nvidia-cuda-toolkit
+
+conda create --name cuda_env
+conda activate cuda_env
+conda install numpy pyyaml mkl mkl-include setuptools cmake cffi typing
+
+conda install pytorch torchvision torchaudio pytorch-cuda=11.7 -c pytorch -c nvidia
